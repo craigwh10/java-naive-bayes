@@ -1,4 +1,5 @@
-public abstract class GaussianDistributionMath {
+// Final to prevent inheritance.
+public final class GaussianDistributionMath {
     interface DoubleFunction {
         double callback(double value);
     }
@@ -17,7 +18,7 @@ public abstract class GaussianDistributionMath {
     static public double mean (double[] data) {
         if (!(data instanceof double[])) {
             throw new IllegalArgumentException(
-                    "Entries must be float values only."
+                    "Entries must be double values only."
             );
         }
 

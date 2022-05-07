@@ -1,33 +1,32 @@
+import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class GaussianDistributionMathTest {
 
     @Test
     void shouldProduceRoundedMean () {
-        assertEquals(GaussianDistributionMath.mean(new double[]{1,2,3,4,5}), 3);
+        assertThat(GaussianDistributionMath.mean(new double[]{1,2,3,4,5})).isEqualTo(3);
     }
 
     @Test
     void shouldAutoBoxCharacterInputs () {
         // e = 101
-        assertEquals(GaussianDistributionMath.mean(new double[]{1,2,3,4,'e'}), 22.2);
+        assertThat(GaussianDistributionMath.mean(new double[]{1,2,3,4,'e'})).isEqualTo(22.2);
     }
 
     @Test
     void shouldCalculateAccurateSampleVariance () {
-        assertEquals(
-                GaussianDistributionMath.sampleVariance(new double[]{1,2,3,4,5}), 2.5
-        );
+        assertThat(GaussianDistributionMath.sampleVariance(new double[]{1,2,3,4,5})).isEqualTo(2.5);
     }
 
-    // This is not desirable but is a property of auto-boxing chars to numbers.
+    // This is not desirable but is a property of auto-boxing chars to double primitive.
     @Test
     void shouldCalculateAccurateSampleVarianceWithCharacters () {
-        assertEquals(
-                Math.round(GaussianDistributionMath.sampleVariance(new double[]{1,2,3,4,5,'e'})), 1603
-        );
+        assertThat(
+                GaussianDistributionMath.sampleVariance(new double[]{1,2,3,4,5,'e'})
+        ).isCloseTo(1603, Percentage.withPercentage(0.05));
     }
     // Validated with https://www.wolframalpha.com/input?i=variance+of+%7B1%2C2%2C3%2C4%2C5%2C+101%7D
 
@@ -37,9 +36,7 @@ public class GaussianDistributionMathTest {
         // 1-3,2-3,3-3,4-3,5-3
         // -2,-1,0,1,2 = 0
 
-        assertEquals(
-            GaussianDistributionMath.deviation(new double[]{1,2,3,4,5}), 0
-        );
+        assertThat(GaussianDistributionMath.deviation(new double[]{1,2,3,4,5})).isEqualTo(0);
     }
 }
 
