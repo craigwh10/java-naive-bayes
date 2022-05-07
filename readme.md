@@ -1,5 +1,7 @@
 Package for running naive bayes forecasting for gaussian distributed datasets.
 
+Aiming to work towards forecasting stock prices from financial datasets.
+
 ---
 ### To run
 
@@ -30,3 +32,9 @@ gradle test
 - [ ] Gaussian distribution
   - [ ] Stat methods
   - [ ] Naive bayes implementation
+
+---
+
+Notes:
+
+- To use a modular setup right click the java dir, open module settings then control them there, otherwise modules are added outside the scope of the core reverse dns style package.

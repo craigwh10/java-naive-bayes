@@ -1,3 +1,7 @@
+package com.craigwh10.naivebayes;
+
+import com.craigwh10.naivebayes.Gaussian.GaussianNaiveBayes;
+
 /**
  Bayes Rule:
  P(c|x) =  P(x|c) * P(c)
@@ -15,7 +19,7 @@
 
  Naive Bayes: [Gaussian, Multinomial & Bernoulli]
 
- Gaussian - features with normal distribution
+ Gaussian - features with normal distribution (a feature is something that can be categorised)
  Multinomial - discrete counts, how often something will occur.
  Bernoulli - binary feature vectors, something will occur and not occur.
 
