@@ -31,6 +31,16 @@ public class GaussianDistributionMathTest {
     }
     // Validated with https://www.wolframalpha.com/input?i=variance+of+%7B1%2C2%2C3%2C4%2C5%2C+101%7D
 
+    @Test
+    void shouldCalculateAccurateDeviation () {
+        // x - 3
+        // 1-3,2-3,3-3,4-3,5-3
+        // -2,-1,0,1,2 = 0
+
+        assertEquals(
+            GaussianDistributionMath.deviation(new double[]{1,2,3,4,5}), 0
+        );
+    }
 }
 
 /**

@@ -40,4 +40,10 @@ public abstract class GaussianDistributionMath {
 
         return standardDeviation / (data.length - 1);
     }
+
+    static public double deviation (double[] data) {
+        double mean = mean(data);
+
+        return sumOf(data, (value) -> value - mean);
+    }
 }
