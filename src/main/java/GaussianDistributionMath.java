@@ -1,9 +1,9 @@
-public class GaussianDistributionMath {
+public abstract class GaussianDistributionMath {
     interface DoubleFunction {
         double callback(double value);
     }
 
-    private double sumOf (double[] data, DoubleFunction method) {
+    static private double sumOf (double[] data, DoubleFunction method) {
         int dataLength = data.length;
         double sumOf = 0;
 
@@ -14,7 +14,7 @@ public class GaussianDistributionMath {
         return sumOf;
     }
 
-    public double mean (double[] data) {
+    static public double mean (double[] data) {
         if (!(data instanceof double[])) {
             throw new IllegalArgumentException(
                     "Entries must be float values only."
@@ -30,7 +30,7 @@ public class GaussianDistributionMath {
         return acc / (double) data.length;
     }
 
-    public double sampleVariance (double[] data) {
+    static public double sampleVariance (double[] data) {
         double mean = mean(data);
 
         double standardDeviation = sumOf(data, (value) -> {
