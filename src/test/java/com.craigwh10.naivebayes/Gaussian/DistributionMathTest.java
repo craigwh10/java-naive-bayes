@@ -1,5 +1,6 @@
 package com.craigwh10.naivebayes.Gaussian;
 
+import com.craigwh10.naivebayes.Data.Csv;
 import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.Test;
 
@@ -64,6 +65,20 @@ public class DistributionMathTest {
                     DistributionMath.likelihood(4, new double[]{1,2,3,4,5}) +
                     DistributionMath.likelihood(5, new double[]{1,2,3,4,5})
         ).isNotEqualTo(1);
+    }
+
+    @Test
+    void likelihoodShouldHandleCsvData () {
+        Csv csv = new Csv("/Users/craigwhite/IdeaProjects/NaiveBayes/src/test/resources/coin_Solana.csv");
+
+        csv.standardiseRows(10);
+        csv.saveHeaderAndRemoveFromDataset();
+
+        double[] closingValueColumn = csv.getColumnAsDoubles(6);
+
+        assertThat(Math.round(DistributionMath.likelihood( 13, closingValueColumn))).isEqualTo(
+                0L
+        );
     }
 }
 
