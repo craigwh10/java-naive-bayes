@@ -58,6 +58,33 @@ public class CsvTest {
     }
 
     @Test
+    void columnsShouldBeReturnable () {
+        Csv csv = new Csv("/Users/craigwhite/IdeaProjects/NaiveBayes/src/test/resources/coin_Solana.csv");
+
+        csv.standardiseRows(10);
+        csv.saveHeaderAndRemoveFromDataset();
+
+        assertThat(csv.getColumn(1)[0]).isEqualTo("Solana");
+        assertThat(csv.getColumn(1)[140]).isEqualTo("Solana");
+        assertThat(csv.getColumn(1)[249]).isEqualTo("Solana");
+    }
+
+    @Test
+    void shouldBeAbleToReturnColumnsAsDoubles () {
+        Csv csv = new Csv("/Users/craigwhite/IdeaProjects/NaiveBayes/src/test/resources/coin_Solana.csv");
+
+        csv.standardiseRows(10);
+        csv.saveHeaderAndRemoveFromDataset();
+
+        String[] stringColumn = csv.getColumn(6);
+
+        assertThat(stringColumn[0]).isEqualTo("0.95105395758");
+        double[] numericalStringColumn = csv.getColumnAsDoubles(6);
+
+        assertThat(numericalStringColumn[0]).isEqualTo(0.95105395758);
+    }
+
+    @Test
     void shouldThrowIfFileNotFound () {
         try {
             new Csv("invalid.txt");

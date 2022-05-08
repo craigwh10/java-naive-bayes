@@ -19,7 +19,7 @@ final public class GaussianNaiveBayes {
         // P(i4 = 0 | prior) = P(i4) * PROD{ l(i0=0|prior=0)..l(i1=1|prior=0)
         // P(i4 = 1 | ..
         // P(i4 = 2
-        double classifier = MathArgMax.calculate(new double[]{0.25, 0.75}, (value -> value * this.mathUtils.productOf(
+        double classifier = MathArgMax.calculate(new double[]{40, 60}, (value -> value * this.mathUtils.productOf(
                 priorData, (prior) -> (
                 this.distributionMath.likelihood(predictor, priorData)
         ))));

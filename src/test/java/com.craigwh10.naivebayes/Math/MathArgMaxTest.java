@@ -5,16 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class MathArgMaxTest {
 
-//    @Test
-//    void shouldGetMaxArgAndIndexForFunctionWithArrayOfInputs () {
-//        MathArgMax mathArgMax = new MathArgMax(new double[]{1,2,3,4,5}, (val) -> val * 2);
-//
-//        assertThat(mathArgMax)
-//                .hasFieldOrProperty("index")
-//                .hasFieldOrProperty("value")
-//                .hasNoNullFieldsOrProperties();
-//
-//        assertThat(mathArgMax.value).isEqualTo(10);
-//        assertThat(mathArgMax.index).isEqualTo(4);
-//    }
+    @Test
+    void shouldGetMaxArgAndIndexForFunctionWithArrayOfInputs () {
+        assertThat(MathArgMax.calculate(new double[]{1,2,3,4,5}, (val) -> val * 2)).isEqualTo(5);
+    }
 }

@@ -28,8 +28,9 @@ gradle test
 - [ ] Stretch tasks
   - [ ] Remove lambda expressions
   - [ ] Performance monitoring
-  - [ ] Graphics generation for distribution and time series generation.
+  - [ ] Graphics generation for distribution and time series generation
 - [ ] Gaussian distribution
+  - [ ] Generating classes for classifier 
   - [ ] Stat methods
   - [ ] Naive bayes implementation
 
