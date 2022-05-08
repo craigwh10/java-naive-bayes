@@ -35,7 +35,9 @@ public class GaussianNaiveBayesTest {
                         new DistributionMath(),
                         new MathUtils()
                 ).classify(
-                        80, closingValueColumn)
+                        // This predictor Ck, should be used to calculate
+                        // P(Ck), which should be known from our priors.
+                        0.3, closingValueColumn)
         ).isEqualTo(0.75);
     }
 }
