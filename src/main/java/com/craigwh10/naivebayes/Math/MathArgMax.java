@@ -3,34 +3,27 @@ package com.craigwh10.naivebayes.Math;
 import java.util.ArrayList;
 
 /**
- * argmax(g(x))
+ * <b>argmax(<g(x))</b>
+ * <br/>
+ * Gets the passed parameter x that maximises g(x).
  * -
  * <a href="https://machinelearningmastery.com/argmax-in-machine-learning/#:~:text=Argmax%20is%20an%20operation%20that,function%20is%20preferred%20in%20practice.">Definition</a>
  */
 public final class MathArgMax {
-    public int index;
-    public double value;
-
-    public MathArgMax (double[] values, MathUtils.DoubleFunction method) {
-        calculate(values, method);
-    }
-
-    private void calculate (double[] values, MathUtils.DoubleFunction method) {
-        ArrayList<Double> results = new ArrayList<Double>();
+    static public double calculate (double[] values, MathUtils.DoubleFunction method) {
+        double maxValue = 0;
+        double maximisingParameter = 0;
 
         for (int idx = 0; idx < values.length; idx++) {
             double result = method.callback(values[idx]);
 
-            results.add(result);
+            if (result > maxValue) {
+                maxValue = result;
+                maximisingParameter = values[idx];
+            }
+
         }
 
-        double maxValue = results.stream().mapToDouble(Double::doubleValue).max().getAsDouble();
-
-        // Cast so can interact with ArrayList.
-        Double maxAsDouble = (Double) maxValue;
-        int maxValueIndex = results.indexOf(maxAsDouble);
-
-        this.index = maxValueIndex;
-        this.value = maxValue;
+        return maximisingParameter;
     }
 }

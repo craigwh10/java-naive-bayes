@@ -1,6 +1,6 @@
 Package for running naive bayes forecasting for gaussian distributed datasets.
 
-Aiming to work towards forecasting stock prices from financial datasets.
+Aiming to work against an example of classifying cryptocurrencies using [kaggle dataset](https://www.kaggle.com/datasets/sudalairajkumar/cryptocurrencypricehistory)
 
 ---
 ### To run

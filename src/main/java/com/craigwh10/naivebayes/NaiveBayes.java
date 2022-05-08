@@ -3,6 +3,9 @@ package com.craigwh10.naivebayes;
 import com.craigwh10.naivebayes.Gaussian.GaussianNaiveBayes;
 
 /**
+ * Primarily based on:
+ * https://en.wikipedia.org/wiki/Naive_Bayes_classifier
+ *
  Bayes Rule:
  P(c|x) =  P(x|c) * P(c)
            ------------

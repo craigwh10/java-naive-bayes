@@ -21,11 +21,13 @@ public class MathUtilsTest {
 
     @Test
     void shouldNegativeMultiplyASeriesOfEvenResults () {
-        assertThat(MathUtils.productOf(new double[]{1,2,3,4,5}, (val) -> -val)).isEqualTo(120);
+        // - + > -
+        assertThat(MathUtils.productOf(new double[]{1,2,3,4,5}, (val) -> -val)).isEqualTo(-120);
     }
 
     @Test
     void shouldNegativeMultiplyASeriesOfOddResults () {
-        assertThat(MathUtils.productOf(new double[]{1,2,3,4,5,2}, (val) -> -val)).isEqualTo(-240);
+        // - + - > +
+        assertThat(MathUtils.productOf(new double[]{1,2,3,4,5,2}, (val) -> -val)).isEqualTo(240);
     }
 }

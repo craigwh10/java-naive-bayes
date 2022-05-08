@@ -38,6 +38,7 @@ public final class DistributionMath {
     }
 
     /**
+     * P(x_i | C_k)
      * P(predictor | prior_val) = 1/sqrt(2pi*variance_prior)*exp(-{deviation_of_prior_to_posterior_mean}^2/(2*posterior_var)
      * @param predictor - value to predict likelihood of
      * @param priorData - data to use for likelihood estimate

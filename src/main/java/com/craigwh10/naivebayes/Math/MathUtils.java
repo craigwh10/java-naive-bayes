@@ -22,7 +22,7 @@ final public class MathUtils {
 
         for (int idx = 0; idx < dataLength; idx++) {
             if (idx == 0) {
-                productOf = data[idx];
+                productOf = method.callback(data[idx]);
             } else {
                 productOf *= method.callback(data[idx]);
             }
