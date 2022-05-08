@@ -8,9 +8,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class GaussianNaiveBayesTest {
     @Test
     void shouldGenerateClassifierForPredictor () {
-        /**
-         * Given two
-         */
         assertThat(
             new GaussianNaiveBayes(
                 new DistributionMath(),
@@ -19,5 +16,16 @@ public class GaussianNaiveBayesTest {
         4, new double[]{1,2,3,4})
         )
         .isEqualTo(0.75);
+    }
+
+    @Test
+    void shouldHandleCsvData () {
+        assertThat(
+                new GaussianNaiveBayes(
+                        new DistributionMath(),
+                        new MathUtils()
+                ).classify(
+                        4, new double[]{1,2,3,4})
+        ).isEqualTo(0.75);
     }
 }

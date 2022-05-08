@@ -24,7 +24,6 @@ final public class GaussianNaiveBayes {
                 this.distributionMath.likelihood(predictor, priorData)
         ))));
 
-
         return classifier;
     }
 }
